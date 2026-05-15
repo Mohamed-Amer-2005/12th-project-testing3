@@ -4,13 +4,16 @@ const {
   addCucumberPreprocessorPlugin,
 } = require("@badeball/cypress-cucumber-preprocessor");
 
-// 👇 الصح في النسخة دي
 const createEsbuildPlugin =
   require("@badeball/cypress-cucumber-preprocessor/esbuild").createEsbuildPlugin;
 
 module.exports = defineConfig({
   e2e: {
-    specPattern: "cypress/e2e/features/**/*.feature",
+    baseUrl: "https://practicesoftwaretesting.com",
+    specPattern: [
+      "cypress/e2e/**/*.cy.js",
+      "cypress/e2e/**/*.feature",
+    ],
 
     async setupNodeEvents(on, config) {
       await addCucumberPreprocessorPlugin(on, config);
