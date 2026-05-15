@@ -1,4 +1,4 @@
 class ProductPage {
-  addToCart() { cy.get('[data-test="add-to-cart"]').click(); }
+  addToCart() { return cy.get('[data-test="add-to-cart"]'); }
 }
 export default new ProductPage();
